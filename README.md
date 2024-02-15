@@ -11,3 +11,7 @@ Features User authentication: Users can sign up and log in securely to access th
 Future Enhancements Real-time updates: Implement WebSocket technology for real-time updates on tasks. Collaborative task management: Allow users to share and collaborate on tasks with others. Task prioritization: Add features for users to prioritize tasks based on urgency. Integration with calendar apps: Allow users to sync their tasks with external calendar applications.
 
 Struggles Encountered Allow Todos to save to accounts
+
+
+sources:
+3rd party API-https://api.quotable.io/random
