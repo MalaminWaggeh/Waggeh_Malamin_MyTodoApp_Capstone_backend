@@ -14,4 +14,5 @@ Struggles Encountered Allow Todos to save to accounts
 
 
 sources:
-3rd party API-https://api.quotable.io/random
+3rd party API: https://api.quotable.io/random
+Link to frontend: https://github.com/MalaminWaggeh/Waggeh_Malamin_MyTodoApp_Capstone
