@@ -1,25 +1,24 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const authRoutes = require('./routes/auth.routes');
-const authenticateUser = require('./middleware/authenticateUser');
-
+const userRoutes = require('./routes/userRoutes');
+const errorHandler = require('./middleware/errorHandler');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Connection URI
-const uri = 'mongodb+srv://suprememal123:Waggeh12@mongopractice.bcgx2nd.mongodb.net/todo';
-
-// Connect to MongoDB
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Error connecting to MongoDB:', err));
-
 app.use(express.json());
 
-// Routes with authentication middleware
-app.use('/api/auth', authenticateUser, authRoutes);
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/myapp', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to MongoDB');
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => console.error('Error connecting to MongoDB:', err));
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Routes
+app.use('/api/users', userRoutes);
+
+// Error handling middleware
+app.use(errorHandler);
